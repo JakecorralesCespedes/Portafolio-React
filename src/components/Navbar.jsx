@@ -17,7 +17,7 @@ const Navbar = () => {
                         edge="start"
                         color="inherit"
                         aria-label="menu"
-                        sx={{ mr: 50 }}
+                        sx={{ mr: 100 }}
                     >
                         <MenuIcon />
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
