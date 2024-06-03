@@ -1,25 +1,17 @@
-
 import './App.css'
-import Inicio from "./Inicio/Inicio.jsx";
-import Proyectos from "./proyectos/Proyectos.jsx";
-import InfoPersonal from "./InfoPersonal/InfoPersonal.jsx";
-import Menu from "./Menu/Menu.jsx";
+// eslint-disable-next-line no-unused-vars
+import React from "react";
+import Navbar from "./components/navegar/Navbar.jsx";
+import location from "./components/ubv/ubv.jsx";
 
-
-
-
-export default function App() {
+function App() {
   return (
-      <div>
-          <Menu />
-          <Inicio />
-          <Proyectos />
-          <InfoPersonal />
-      </div>
-
-
-  );
+    <>
+       <Navbar />
+        <location />
+    </>
+  )
 }
 
-
+export default App
 
