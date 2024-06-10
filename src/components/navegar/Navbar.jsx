@@ -1,7 +1,7 @@
 import React from "react";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Button} from "@nextui-org/react";
 import {AcmeLogo} from "./AcmeLogo.jsx";
-
+import {Link} from "react-router-dom";
 export default function navbar() {
     return (
         <Navbar>
@@ -11,7 +11,7 @@ export default function navbar() {
             </NavbarBrand>
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
                 <NavbarItem isActive>
-                    <Link color="#" href="page">
+                    <Link to={"/"}>
                         Home
                     </Link>
                 </NavbarItem>
@@ -32,14 +32,9 @@ export default function navbar() {
                 </NavbarItem>
             </NavbarContent>
             <NavbarContent justify="end">
-                <NavbarItem className="hidden lg:flex">
-                    <Link href="https://github.com/JakecorralesCespedes">Login</Link>
-                </NavbarItem>
-                <NavbarItem>
-                    <Button as={Link} color="primary" href="#" variant="flat">
-                        Sign Up
-                    </Button>
-                </NavbarItem>
+                <img src="https://i.pinimg.com/736x/b5/1b/78/b51b78ecc9e5711274931774e433b5e6.jpg" width={50}/>
+                <Link src="https://avatars.githubusercontent.com/u/91326972?v=4" alt="JakecorralesCespedes" href="https://github.com/JakecorralesCespedes"></Link>
+
             </NavbarContent>
         </Navbar>
     );
