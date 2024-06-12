@@ -16,12 +16,12 @@ export default function navbar() {
                     </Link>
                 </NavbarItem>
                 <NavbarItem >
-                    <Link href="/src/" color="#page">
+                    <Link to={"/Projects"}>
                         Projects
                     </Link>
                 </NavbarItem>
                 <NavbarItem>
-                    <Link color="foreground" href="#">
+                    <Link to={"/Info"}>
                         Info
                     </Link>
                 </NavbarItem>
@@ -32,9 +32,11 @@ export default function navbar() {
                 </NavbarItem>
             </NavbarContent>
             <NavbarContent justify="end">
-                <img src="https://i.pinimg.com/736x/b5/1b/78/b51b78ecc9e5711274931774e433b5e6.jpg" width={50}/>
-                <Link src="https://avatars.githubusercontent.com/u/91326972?v=4" alt="JakecorralesCespedes" href="https://github.com/JakecorralesCespedes"></Link>
-
+                <Link to={"https://github.com/JakecorralesCespedes"}>
+                <Button color="secondary" variant="contained">
+                <img src="https://i.pinimg.com/736x/b5/1b/78/b51b78ecc9e5711274931774e433b5e6.jpg" width={70}/>
+                </Button>
+                </Link>
             </NavbarContent>
         </Navbar>
     );
