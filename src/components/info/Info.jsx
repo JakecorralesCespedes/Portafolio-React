@@ -39,7 +39,7 @@ export default function Info() {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                height: '125vh'
+                height: '120vh'
             }}>
                 <Habilidades />
             </div>

@@ -102,6 +102,57 @@ const columns2 = [
         label: "Estado",
     },
 ];
+
+const rows3 = [
+    {
+        key: "1",
+        name: "Tecnico fotografía profesional",
+        Nivel: "En Proceso",
+    },
+
+    {
+        key: "2",
+        name: "Comercio Digital",
+        Nivel: "En Proceso",
+    },
+
+    {
+        key: "3",
+        name: "Fundamentos de Python 1",
+        Nivel: "Finalizado",
+    },
+    {
+        key: "4",
+        name: "Fundamentos de Python 2",
+        Nivel: "Finalizado",
+    },
+    {
+        key: "5",
+        name: "JavaScript Essentials 1",
+        Nivel: "En Proceso",
+    },
+    {
+        key: "6",
+        name: "JavaScript Essentials 2",
+        Nivel: "En Proceso",
+    },
+    {
+        key: "7",
+        name: "Introducción a la ciencia de datos",
+        Nivel: "En Proceso",
+    },
+];
+
+const columns3 = [
+    {
+        key: "name",
+        label: "Cursos y certificados",
+    },
+    {
+        key: "Nivel",
+        label: "Estado",
+    },
+];
 export default function Habilidades() {
     return (
         <>
@@ -111,8 +162,9 @@ export default function Habilidades() {
                     flexDirection: 'column',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    height: '350vh'
+                    height: '122vh'
                 }}>
+
                 <Table className="w-[600px] h-[400px]">
                     <TableHeader columns={columns}>
                         {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
@@ -125,19 +177,27 @@ export default function Habilidades() {
                         )}
                     </TableBody>
                 </Table>
-                <div
-                    style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        height: '75vh'
-                    }}>
+
+                <br/>
+
+                    <Table className="w-[600px] h-[400px]">
+                        <TableHeader columns={columns2}>
+                            {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
+                        </TableHeader>
+                        <TableBody items={rows2}>
+                            {(item) => (
+                                <TableRow key={item.key}>
+                                    {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
+                                </TableRow>
+                            )}
+                        </TableBody>
+                    </Table>
+
                 <Table className="w-[600px] h-[400px]">
-                    <TableHeader columns={columns2}>
+                    <TableHeader columns={columns3}>
                         {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
                     </TableHeader>
-                    <TableBody items={rows2}>
+                    <TableBody items={rows3}>
                         {(item) => (
                             <TableRow key={item.key}>
                                 {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
@@ -145,7 +205,7 @@ export default function Habilidades() {
                         )}
                     </TableBody>
                 </Table>
-                </div>
+
             </div>
         </>
     );
