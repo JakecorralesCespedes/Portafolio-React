@@ -8,7 +8,7 @@ export default function Inicio() {
 
         {
             title: "SistemaGestionLibros",
-            img: "./dist/src/assets/repositorio1.png",
+            img: "repositorio1.png",
             fecha: "Nov 11, 2023",
             Link: "https://github.com/JakecorralesCespedes/proyecto-final-programacion-2.git",
         },
