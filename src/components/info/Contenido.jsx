@@ -1,36 +1,10 @@
 import React from "react";
+
 export const Contenido = () => (
-    <div>
-        <p>Soy Jake tengo 18 años, soy nacido en Norwalk, Connecticut, Estados Unidos,
-            mis padres son ticos y fui criado mayormente en Costa. Rica,
-            fui criado en el canto de Pérez Zeledón y estudie en escuela y colegio publico
-            soy una persona de muy buenos valores, honesto, sencillo,
-
-            tolerante, siempre me ha gusta estar para las personas
-            ayudar en lo que pueda. Tengo un gusto en los video juegos,
-
-            me gusta mucho la fotografía y actualmente estoy sacando un técnico
-            en fotografía profesional en el instituto técnico nacional,
-
-            tengo experiencia de 1 años en instalaciones de aire acondicionado y calefacción,
-            como también tengo experiencia de 3 años en un lubricentro en cambio de aceite,
-
-            filtros y cambio de llantas y reparación tengo un gusto en las películas de acción
-            como también las románticas, dramas y ficción. Me gusta ver anime en mis tiempos libres,
-
-            me gusta tomar un tiempo los domingos para practicar
-            lo que he aprendido a lo largo de la carrera de Ingeniería de Sistemas.
-
-            actualmente también voy cursando mi quinto cuatrimestre en la Universidad UNADECA
-            y me falta aproximadamente 3 cuatrimestre más para graduarme de la Universidad
-
-            he participado en diferentes tipos de cursos como comercio digital, Python,
-            arquitectura de computadoras, etc...
-
-            Actualmente tengo una meta que es aprender a hablar fluido el inglés si es posible
-            antes de graduarme de la Universidad como también lograr conseguir alguna pasantía
-
-            con respecto a lo que estoy estudiando para conseguir experiencia laboral.
-        </p>
+    <div className="muted" style={{fontSize:"0.95rem", lineHeight:1.55}}>
+        <p><strong>Hola, soy Jake Corrales.</strong> Desarrollador frontend en formación universitaria (Ingeniería de Sistemas) con enfoque en crear interfaces accesibles, eficientes y mantenibles. Disfruto traducir necesidades en soluciones claras y medibles.</p>
+        <p>Complemento mi crecimiento técnico con cursos de Python, JavaScript, fundamentos de arquitectura y comercio digital. Practico fotografía de naturaleza; esa disciplina mejora mi atención al detalle y sentido estético aplicado al diseño UI.</p>
+        <p>Me motiva la mejora continua: refactorizar, medir rendimiento, documentar y compartir aprendizajes. Actualmente busco oportunidades o pasantías donde aportar código de calidad mientras continúo perfeccionando inglés técnico.</p>
+        <p style={{marginBottom:0}}>Valores: ética, claridad, colaboración, responsabilidad y aprendizaje constante.</p>
     </div>
 );

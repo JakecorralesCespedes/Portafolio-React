@@ -1,212 +1,64 @@
 import React from "react";
-import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@nextui-org/react";
+import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell} from "@nextui-org/react";
 
-const rows = [
-    {
-        key: "1",
-        name: "Python",
-        Nivel: "Intermedio",
-    },
-
-    {
-        key: "2",
-        name: "Java",
-        Nivel: "Intermedio",
-    },
-
-    {
-        key: "3",
-        name: "C++",
-        Nivel: "Basico",
-    },
-
-    {
-        key: "4",
-        name: "Html",
-        Nivel: "Intermedio",
-    },
-
-    {
-        key: "5",
-        name: "CSS",
-        Nivel: "Intermedio",
-    },
-
-    { key: "6",
-        name: "JavaScript",
-        Nivel: "Intermedio"
-    },
-
-    { key: "7",
-        name: "React",
-        Nivel: "Basico"
-    },
-
-    { key: "8",
-        name: "Docker",
-        Nivel: "Basico"
-    },
-
-    { key: "9",
-        name: "base de datos",
-        Nivel: "Basico"
-    },
-
-        { key: "10",
-            name: "Git",
-            Nivel: "Intermedio"
-        },
-
-
+const skillData = [
+    { key:"1", name:"HTML", nivel:"Intermedio" },
+    { key:"2", name:"CSS", nivel:"Intermedio" },
+    { key:"3", name:"JavaScript", nivel:"Intermedio" },
+    { key:"4", name:"React", nivel:"Intermedio" },
+    { key:"5", name:"Python", nivel:"Intermedio" },
+    { key:"6", name:"Git", nivel:"Intermedio" },
+    { key:"7", name:"C++", nivel:"Básico" },
+    { key:"8", name:"Docker", nivel:"Básico" },
+    { key:"9", name:"Bases de Datos", nivel:"Básico" }
 ];
 
-const columns = [
-    {
-        key: "name",
-        label: "Habilidades",
-    },
-    {
-        key: "Nivel",
-        label: "nivel",
-    },
+const educationData = [
+    { key:"1", name:"Primaria", estado:"Completado" },
+    { key:"2", name:"Secundaria", estado:"Completado" },
+    { key:"3", name:"Universidad (Ing. Sistemas)", estado:"En curso" }
 ];
 
-const rows2 = [
-    {
-        key: "1",
-        name: "Primaria",
-        Nivel: "Finalizado",
-    },
-
-    {
-        key: "2",
-        name: "Segundaria",
-        Nivel: "Finalizado",
-    },
-
-    {
-        key: "3",
-        name: "Universidad",
-        Nivel: "En Proceso",
-    },
+const courseData = [
+    { key:"1", name:"Técnico Fotografía Profesional", estado:"En curso" },
+    { key:"2", name:"Comercio Digital", estado:"En curso" },
+    { key:"3", name:"Fundamentos de Python 1", estado:"Completado" },
+    { key:"4", name:"Fundamentos de Python 2", estado:"Completado" },
+    { key:"5", name:"JavaScript Essentials 1", estado:"En curso" },
+    { key:"6", name:"JavaScript Essentials 2", estado:"En curso" },
+    { key:"7", name:"Introducción Ciencia de Datos", estado:"En curso" }
 ];
 
-
-const columns2 = [
-    {
-        key: "name",
-        label: "Educacion",
-    },
-    {
-        key: "Nivel",
-        label: "Estado",
-    },
-];
-
-const rows3 = [
-    {
-        key: "1",
-        name: "Tecnico fotografía profesional",
-        Nivel: "En Proceso",
-    },
-
-    {
-        key: "2",
-        name: "Comercio Digital",
-        Nivel: "En Proceso",
-    },
-
-    {
-        key: "3",
-        name: "Fundamentos de Python 1",
-        Nivel: "Finalizado",
-    },
-    {
-        key: "4",
-        name: "Fundamentos de Python 2",
-        Nivel: "Finalizado",
-    },
-    {
-        key: "5",
-        name: "JavaScript Essentials 1",
-        Nivel: "En Proceso",
-    },
-    {
-        key: "6",
-        name: "JavaScript Essentials 2",
-        Nivel: "En Proceso",
-    },
-    {
-        key: "7",
-        name: "Introducción a la ciencia de datos",
-        Nivel: "En Proceso",
-    },
-];
-
-const columns3 = [
-    {
-        key: "name",
-        label: "Cursos y certificados",
-    },
-    {
-        key: "Nivel",
-        label: "Estado",
-    },
-];
-export default function Habilidades() {
+function SimpleTable({ title, data, cols }){
     return (
-        <>
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    height: '122vh'
-                }}>
+        <div className="panel fade-up" style={{padding:"20px 20px 12px"}}>
+            <h3 className="headline" style={{marginTop:0, fontSize:"1rem"}}>{title}</h3>
+            <Table aria-label={title} removeWrapper>
+                <TableHeader>
+                    {cols.map(c => <TableColumn key={c.key}>{c.label}</TableColumn>)}
+                </TableHeader>
+                <TableBody>
+                    {data.map(row => (
+                        <TableRow key={row.key}>
+                            {cols.map(c => <TableCell key={c.key}>{row[c.key]}</TableCell>)}
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
+        </div>
+    );
+}
 
-                <Table className="w-[600px] h-[400px]">
-                    <TableHeader columns={columns}>
-                        {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
-                    </TableHeader>
-                    <TableBody items={rows}>
-                        {(item) => (
-                            <TableRow key={item.key}>
-                                {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
-                            </TableRow>
-                        )}
-                    </TableBody>
-                </Table>
-
-                <br/>
-
-                    <Table className="w-[600px] h-[400px]">
-                        <TableHeader columns={columns2}>
-                            {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
-                        </TableHeader>
-                        <TableBody items={rows2}>
-                            {(item) => (
-                                <TableRow key={item.key}>
-                                    {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
-                                </TableRow>
-                            )}
-                        </TableBody>
-                    </Table>
-
-                <Table className="w-[600px] h-[400px]">
-                    <TableHeader columns={columns3}>
-                        {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
-                    </TableHeader>
-                    <TableBody items={rows3}>
-                        {(item) => (
-                            <TableRow key={item.key}>
-                                {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
-                            </TableRow>
-                        )}
-                    </TableBody>
-                </Table>
-
+export default function Habilidades(){
+    return (
+        <section className="container section" aria-labelledby="skills-edu-title">
+            <h2 id="skills-edu-title" className="headline gradient-text">Resumen estructurado</h2>
+            <p className="lead" style={{maxWidth:720}}>Capacidades técnicas y formación presentadas de forma clara. Priorizo fortalecer bases sólidas (lógica, patrones, pruebas) y avanzar hacia mayor profundidad en arquitectura frontend.</p>
+            <div className="grid-auto mt-5" style={{alignItems:"start"}}>
+                <SimpleTable title="Habilidades técnicas" data={skillData} cols={[{key:"name",label:"Habilidad"},{key:"nivel",label:"Nivel"}]} />
+                <SimpleTable title="Educación" data={educationData} cols={[{key:"name",label:"Programa"},{key:"estado",label:"Estado"}]} />
+                <SimpleTable title="Cursos / Certificados" data={courseData} cols={[{key:"name",label:"Curso"},{key:"estado",label:"Estado"}]} />
             </div>
-        </>
+        </section>
     );
 }

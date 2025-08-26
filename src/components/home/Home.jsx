@@ -1,6 +1,8 @@
 import React from "react";
 import { Button, Card, CardBody, CardFooter, Image } from "@nextui-org/react";
 import { Link } from "react-router-dom";
+import Hero from "../ui/Hero.jsx";
+import Skills from "../ui/Skills.jsx";
 import repositorio1 from "../../assets/repositorio1.png";
 import repositorio2 from "../../assets/repositorio2.png";
 import repositorio3 from "../../assets/repositorio3.png";
@@ -79,7 +81,12 @@ export default function Inicio() {
   ];
   return (
     <>
-      <div className="gap-3.5 grid grid-cols-10 sm:grid-cols-2">
+      <Hero />
+      <Skills />
+      <section className="container section" id="projects" aria-labelledby="projects-title">
+        <h2 id="projects-title" className="headline gradient-text">Proyectos Destacados</h2>
+        <p className="lead" style={{maxWidth:620}}>Selección de trabajos y ejercicios que reflejan aprendizaje continuo, buenas prácticas y uso de APIs, patrones y animaciones.</p>
+        <div className="projects-wrapper gap-5 grid-auto mt-5">
         {list.map((item, index) => (
           <Card
             shadow="sm"
@@ -93,25 +100,23 @@ export default function Inicio() {
                 radius="lg"
                 width="100"
                 alt={item.title}
-                className="w-full object-cover h-[450px]"
+                className="w-full object-cover"
                 src={item.img}
               />
             </CardBody>
             <CardFooter className="text-small justify-between">
               <b>{item.title}</b>
               <Link to={item.Link}>
-                <Button
-                  radius="full"
-                  className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
-                >
-                  github
+                <Button radius="full" className="btn-primary" style={{padding:"6px 14px"}}>
+                  GitHub
                 </Button>
               </Link>
               <p className="text-default-500">{item.fecha}</p>
             </CardFooter>
           </Card>
         ))}
-      </div>
+        </div>
+      </section>
     </>
   );
 }

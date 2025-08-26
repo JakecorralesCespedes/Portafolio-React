@@ -6,7 +6,8 @@ import {BrowserRouter,Route,Routes} from "react-router-dom";
 import Inicio from "./components/home/Home.jsx";
 import Hobby from "./components/Hobby/Hobby.jsx";
 import Info from "./components/info/Info.jsx";
-import whatsapp from "./assets/whatsapp.png";
+import About from "./components/ui/About.jsx";
+import Footer from "./components/ui/Footer.jsx";
 
 function App() {
     return (
@@ -20,13 +21,13 @@ function App() {
              <Route path="/Hobby" element={<Hobby/>}/>
              <Route path="/Info" element={<Info/>}/>
          </Routes>
-
-         <div id={"Botones"}
-              style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center',}}>
-             <button id={"button"}><a href="https://wa.me/87308869"> whatsapp</a></button>
-             <button id={"button"}><a href="mailto:jakecorrales24@gmail.com">mail perosonal</a></button>
-             <button id={"button"}><a href="mailto:jake.corrales@unadeca.net">mail Univercitario</a></button>
-         </div>
+            <About />
+            <Footer />
+            <div className="contact-bar" aria-label="Acciones rápidas de contacto">
+                <a className="contact-fab" href="https://wa.me/87308869" title="WhatsApp" aria-label="WhatsApp">WA</a>
+                <a className="contact-fab" href="mailto:jakecorrales24@gmail.com" title="Correo personal" aria-label="Correo personal">@</a>
+                <a className="contact-fab" href="mailto:jake.corrales@unadeca.net" title="Correo universitario" aria-label="Correo universitario">UNI</a>
+            </div>
      </BrowserRouter>
  </>
 
