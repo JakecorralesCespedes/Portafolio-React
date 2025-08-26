@@ -1,63 +1,74 @@
 import React from "react";
-import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell} from "@nextui-org/react";
 
-const skillData = [
-    { key:"1", name:"HTML", nivel:"Intermedio" },
-    { key:"2", name:"CSS", nivel:"Intermedio" },
-    { key:"3", name:"JavaScript", nivel:"Intermedio" },
-    { key:"4", name:"React", nivel:"Intermedio" },
-    { key:"5", name:"Python", nivel:"Intermedio" },
-    { key:"6", name:"Git", nivel:"Intermedio" },
-    { key:"7", name:"C++", nivel:"Básico" },
-    { key:"8", name:"Docker", nivel:"Básico" },
-    { key:"9", name:"Bases de Datos", nivel:"Básico" }
-];
+const Section = ({title, children}) => (
+    <div className="panel" style={{padding:"22px 26px"}}>
+        <h3 className="headline" style={{marginTop:0, fontSize:"1rem"}}>{title}</h3>
+        <div style={{display:"flex", flexDirection:"column", gap:14}}>{children}</div>
+    </div>
+);
 
-const educationData = [
-    { key:"1", name:"Primaria", estado:"Completado" },
-    { key:"2", name:"Secundaria", estado:"Completado" },
-    { key:"3", name:"Universidad (Ing. Sistemas)", estado:"En curso" }
-];
-
-const courseData = [
-    { key:"1", name:"Técnico Fotografía Profesional", estado:"En curso" },
-    { key:"2", name:"Comercio Digital", estado:"En curso" },
-    { key:"3", name:"Fundamentos de Python 1", estado:"Completado" },
-    { key:"4", name:"Fundamentos de Python 2", estado:"Completado" },
-    { key:"5", name:"JavaScript Essentials 1", estado:"En curso" },
-    { key:"6", name:"JavaScript Essentials 2", estado:"En curso" },
-    { key:"7", name:"Introducción Ciencia de Datos", estado:"En curso" }
-];
-
-function SimpleTable({ title, data, cols }){
-    return (
-        <div className="panel fade-up" style={{padding:"20px 20px 12px"}}>
-            <h3 className="headline" style={{marginTop:0, fontSize:"1rem"}}>{title}</h3>
-            <Table aria-label={title} removeWrapper>
-                <TableHeader>
-                    {cols.map(c => <TableColumn key={c.key}>{c.label}</TableColumn>)}
-                </TableHeader>
-                <TableBody>
-                    {data.map(row => (
-                        <TableRow key={row.key}>
-                            {cols.map(c => <TableCell key={c.key}>{row[c.key]}</TableCell>)}
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
+const Item = ({primary, meta, bullets, link}) => (
+    <div style={{display:"flex", flexDirection:"column", gap:6}}>
+        <div style={{display:"flex", justifyContent:"space-between", gap:12, flexWrap:"wrap"}}>
+            <strong style={{color:"var(--color-heading)", fontSize:'.85rem'}}>{primary}</strong>
+            {meta && <span style={{fontSize:"0.65rem", letterSpacing:".5px", color:"var(--color-text-muted)", textTransform:"uppercase"}}>{meta}</span>}
         </div>
-    );
-}
+        {bullets && (
+            <ul className="list-reset" style={{paddingLeft:14, display:"flex", flexDirection:"column", gap:4}}>
+                {bullets.map(b => <li key={b} style={{fontSize:"0.75rem", lineHeight:1.4}}>{b}</li>)}
+            </ul>
+        )}
+        {link && <a href={link} target="_blank" rel="noopener noreferrer" style={{fontSize:"0.65rem"}}>{link}</a>}
+    </div>
+);
 
-export default function Habilidades(){
+export default function ResumeSections(){
     return (
-        <section className="container section" aria-labelledby="skills-edu-title">
-            <h2 id="skills-edu-title" className="headline gradient-text">Resumen estructurado</h2>
-            <p className="lead" style={{maxWidth:720}}>Capacidades técnicas y formación presentadas de forma clara. Priorizo fortalecer bases sólidas (lógica, patrones, pruebas) y avanzar hacia mayor profundidad en arquitectura frontend.</p>
+        <section className="container section" aria-labelledby="resume-sections-title">
+            <h2 id="resume-sections-title" className="headline gradient-text">Resumen Profesional</h2>
+            <p className="lead" style={{maxWidth:760}}>Síntesis de experiencia, proyectos y formación. Destaco impacto, escalabilidad técnica y preparación para roles frontend o full stack junior con foco en calidad.</p>
             <div className="grid-auto mt-5" style={{alignItems:"start"}}>
-                <SimpleTable title="Habilidades técnicas" data={skillData} cols={[{key:"name",label:"Habilidad"},{key:"nivel",label:"Nivel"}]} />
-                <SimpleTable title="Educación" data={educationData} cols={[{key:"name",label:"Programa"},{key:"estado",label:"Estado"}]} />
-                <SimpleTable title="Cursos / Certificados" data={courseData} cols={[{key:"name",label:"Curso"},{key:"estado",label:"Estado"}]} />
+                <Section title="Experiencia">
+                    <Item primary="IT Engineer – Radio Lira" meta="Aug 2024 — Aug 2025 • Alajuela, CR" bullets={[
+                        "Mantenimiento y optimización del sitio corporativo (mejor UX y performance)",
+                        "Soporte técnico especializado a streaming con >99% uptime",
+                        "App iOS beta (SwiftUI) para operaciones internas",
+                        "Propuesta IA para respuestas automáticas (fase de integración web)"
+                    ]}/>
+                    <Item primary="Full Stack Developer – Strix Project (UNADECA)" meta="May 2024 — Dec 2024" bullets={[
+                        "Autenticación segura con Firebase",
+                        "Endpoints REST y lógica backend escalable",
+                        "Mentoría a estudiantes en buenas prácticas y frameworks"
+                    ]}/>
+                </Section>
+                <Section title="Proyectos Destacados">
+                    <Item primary="PocketRad (Healthcare Mobile)" meta="React Native • TS • PostgreSQL" bullets={[
+                        "Búsqueda inteligente y base anatómica",
+                        "Interfaz optimizada para uso clínico",
+                        "Arquitectura escalable preparada para módulos IA"
+                    ]}/>
+                    <Item primary="Strix (University Management)" meta="Svelte • NestJS • Firebase" bullets={[
+                        "Gestión de horas de beca y reportes en tiempo real",
+                        "Panel administrativo y automatización de seguimiento"
+                    ]} link="https://github.com/JakecorralesCespedes/strix"/>
+                    <Item primary="StreamLive (Streaming Platform)" meta="SwiftUI • Firebase Auth • AVKit" bullets={[
+                        "Reproducción HLS y autenticación Firebase",
+                        "Arquitectura modular lista para chat en tiempo real"
+                    ]} link="https://github.com/JakecorralesCespedes/Steamlive"/>
+                </Section>
+                <Section title="Educación y Certificaciones">
+                    <Item primary="B.Sc. Ingeniería de Sistemas – UNADECA" meta="2023 — 2025" />
+                    <Item primary="Python Fundamentals 1 & 2 (Cisco Skills for All)" meta="2024" />
+                        <Item primary="JavaScript Essentials 1 & 2 (Cisco Skills for All)" meta="2024" />
+                        <Item primary="Diploma Técnico Cloud Computing (Capacítate)" meta="2024" />
+                        <Item primary="Cloud Application Developer (Capacítate)" meta="2024" />
+                        <Item primary="English Level B1 (Centro Cultural)" meta="2022" />
+                </Section>
+                <Section title="Tecnologías y Lenguajes">
+                    <Item primary="Lenguajes" bullets={["JavaScript","Python","Java","HTML5","CSS3","Swift"]} />
+                    <Item primary="Tecnologías" bullets={["React","Node.js","NestJS","PostgreSQL","Firebase","Docker"]} />
+                    <Item primary="Otros" bullets={["Full Stack Development","Microservices Architecture"]} />
+                </Section>
             </div>
         </section>
     );

@@ -1,5 +1,6 @@
 import React from "react";
-import { FiDownload, FiMail } from "react-icons/fi";
+import { FiDownload, FiMail, FiExternalLink } from "react-icons/fi";
+import cvPdf from "../../assets/Jakecorrales.pdf";
 
 export default function Hero(){
   return (
@@ -13,8 +14,11 @@ export default function Hero(){
               Desarrollo interfaces accesibles, performantes y mantenibles aplicando principios de arquitectura, medición de rendimiento y animaciones fluidas. Enfoque en claridad, escalabilidad y experiencia de usuario.
             </p>
             <div className="hero-cta fade-up">
-              <a className="btn btn-primary" href="/resume.pdf" download aria-label="Descargar CV">
-                <FiDownload /> CV
+              <a className="btn btn-primary" href={cvPdf} download="JakeCorrales-CV.pdf" aria-label="Descargar CV en PDF">
+                <FiDownload /> Descargar CV
+              </a>
+              <a className="btn btn-outline" href={cvPdf} target="_blank" rel="noopener noreferrer" aria-label="Ver CV en nueva pestaña">
+                <FiExternalLink /> Ver Online
               </a>
               <a className="btn btn-outline" href="mailto:jakecorrales24@gmail.com" aria-label="Contactar por correo">
                 <FiMail /> Contacto

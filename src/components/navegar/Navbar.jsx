@@ -24,9 +24,6 @@ export default function Navbar(){
                     <Link to="/" aria-label="Ir al inicio">Inicio</Link>
                 </NavbarItem>
                 <NavbarItem>
-                    <Link to="/Hobby" aria-label="Ver hobbies">Hobby</Link>
-                </NavbarItem>
-                <NavbarItem>
                     <Link to="/Info" aria-label="Ver información">Info</Link>
                 </NavbarItem>
                 <NavbarItem>

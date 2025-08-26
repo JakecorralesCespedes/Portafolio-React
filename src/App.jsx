@@ -4,7 +4,6 @@ import React from "react";
 import Navbar from "./components/navegar/Navbar.jsx";
 import {BrowserRouter,Route,Routes} from "react-router-dom";
 import Inicio from "./components/home/Home.jsx";
-import Hobby from "./components/Hobby/Hobby.jsx";
 import Info from "./components/info/Info.jsx";
 import About from "./components/ui/About.jsx";
 import Footer from "./components/ui/Footer.jsx";
@@ -18,7 +17,6 @@ function App() {
 
          <Routes>
              <Route path="/" element={<Inicio/>}/>
-             <Route path="/Hobby" element={<Hobby/>}/>
              <Route path="/Info" element={<Info/>}/>
          </Routes>
             <About />
