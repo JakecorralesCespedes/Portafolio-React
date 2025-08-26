@@ -1,10 +1,18 @@
 import React, { useEffect } from "react";
+import {useI18n} from "../../i18n.js";
 
 export default function Skills({ items = [
-  {name:"React", value:90},
-  {name:"TypeScript", value:82},
-  {name:"CSS/Animations", value:88},
-  {name:"Performance", value:78}
+  {name:"JavaScript", value:88},
+  {name:"React", value:86},
+  {name:"Node/NestJS", value:74},
+  {name:"PostgreSQL", value:68},
+  {name:"Firebase", value:72},
+  {name:"Docker", value:60},
+  {name:"Python", value:70},
+  {name:"Java", value:55},
+  {name:"Swift", value:50},
+  {name:"CSS / Animación", value:84},
+  {name:"Performance", value:76}
 ]}){
   useEffect(()=>{
     const bars = document.querySelectorAll(".progress > i");
@@ -14,10 +22,10 @@ export default function Skills({ items = [
     });
   },[items]);
 
+  const {t} = useI18n();
   return (
     <section className="container" aria-labelledby="skills-title">
-      <h2 id="skills-title">Habilidades técnicas</h2>
-      <p className="lead">Listado corto y medible de competencias y ejemplos de funciones/animaciones aplicadas.</p>
+      <h2 id="skills-title">{t('skills_title')} <span style={{fontSize:"0.65em", fontWeight:400, color:"var(--color-text-muted)"}}>{t('skills_hint')}</span></h2>
 
       <div style={{marginTop:16}}>
         {items.map(s => (

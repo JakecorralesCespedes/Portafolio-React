@@ -1,4 +1,5 @@
 import React from "react";
+import {useI18n} from "../../i18n.js";
 import { Button, Card, CardBody, CardFooter, Image } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 import Hero from "../ui/Hero.jsx";
@@ -15,6 +16,7 @@ import repositorio9 from "../../assets/repositorio9.png";
 import repositorio10 from "../../assets/repositorio10.png";
 
 export default function Inicio() {
+  const {t} = useI18n();
   const list = [
     {
       title: "SistemaGestionLibros",
@@ -84,8 +86,8 @@ export default function Inicio() {
       <Hero />
       <Skills />
       <section className="container section" id="projects" aria-labelledby="projects-title">
-        <h2 id="projects-title" className="headline gradient-text">Proyectos Destacados</h2>
-        <p className="lead" style={{maxWidth:620}}>Selección de trabajos y ejercicios que reflejan aprendizaje continuo, buenas prácticas y uso de APIs, patrones y animaciones.</p>
+  <h2 id="projects-title" className="headline gradient-text">{t('projects_heading')}</h2>
+  <p className="lead" style={{maxWidth:620}}>{t('projects_lead')}</p>
         <div className="projects-wrapper gap-5 grid-auto mt-5">
         {list.map((item, index) => (
           <Card

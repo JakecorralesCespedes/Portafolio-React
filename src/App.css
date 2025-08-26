@@ -97,6 +97,7 @@ img.responsive{max-width:100%; height:auto; display:block}
 /* HERO specific */
 .hero-grid{display:flex; gap:42px; align-items:center; flex-wrap:wrap}
 .hero-avatar{width:170px; height:170px; border-radius:26px; position:relative; overflow:hidden; border:1px solid var(--color-border); box-shadow:none}
+.hero-avatar:hover .avatar-overlay{opacity:1}
 .hero-cta{display:flex; gap:14px; flex-wrap:wrap; margin-top:22px}
 .glass{background:linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02)); border:1px solid var(--glass-border); backdrop-filter:blur(14px) saturate(140%); border-radius:var(--radius)}
 
@@ -144,4 +145,19 @@ body h1,body h2,body h3,body p,body span,body a{color:var(--color-text);}
 .progress > i{background:var(--color-accent)!important}
 
 /* (se removió variante flat-ui; ahora es el estilo por defecto) */
+
+/* ===== Anime Gojo Navbar Logo ===== */
+.anime-logo{position:relative; width:48px; height:48px; display:flex; align-items:center; justify-content:center; border-radius:14px; background:radial-gradient(circle at 50% 50%,rgba(56,189,248,.18),rgba(14,165,233,0) 70%); box-shadow:0 0 0 1px rgba(255,255,255,0.04),0 4px 18px -4px rgba(0,0,0,.6),0 0 24px -4px rgba(56,189,248,.55); overflow:visible; animation:logoFloat 5.5s ease-in-out infinite;}
+.anime-logo:before{content:""; position:absolute; inset:-14%; border-radius:inherit; background:conic-gradient(from 0deg,#38bdf8,#7dd3fc,#0ea5e9,#38bdf8); filter:blur(18px) brightness(.9); opacity:.55; animation:rotate360 12s linear infinite; z-index:-1}
+.anime-logo-svg{width:100%; height:100%; display:block; animation:logoPulse 6.2s ease-in-out infinite}
+.ring-dash{animation:dashRotate 9s linear infinite}
+@keyframes rotate360{to{transform:rotate(360deg)}}
+@keyframes logoPulse{0%,100%{filter:drop-shadow(0 0 2px rgba(125,211,252,.55))}50%{filter:drop-shadow(0 0 6px rgba(56,189,248,.85))}}
+@keyframes logoFloat{0%,100%{transform:translateY(-2px)}50%{transform:translateY(6px)}}
+@keyframes dashRotate{to{transform:rotate(360deg)}}
+.logo-spark{position:absolute; top:50%; left:50%; width:5px; height:5px; background:#7dd3fc; border-radius:50%; filter:drop-shadow(0 0 4px #7dd3fc) drop-shadow(0 0 10px #38bdf8); animation:logoSpark 5.8s linear infinite; animation-delay:calc(var(--i)*-0.6s);}
+@keyframes logoSpark{0%{transform:rotate(calc(var(--i)*45deg)) translateY(0) scale(.9); opacity:1}70%{opacity:.95}100%{transform:rotate(calc(var(--i)*45deg + 360deg)) translateY(-70px) scale(0); opacity:0}}
+@media (prefers-reduced-motion:reduce){.anime-logo,.anime-logo:before,.ring-dash,.logo-spark{animation:none}}
+.anime-logo.image{background:radial-gradient(circle at 50% 50%,rgba(56,189,248,.25),rgba(14,165,233,0) 70%); overflow:hidden}
+.anime-logo-img{width:100%; height:100%; object-fit:cover; border-radius:inherit; filter:brightness(1.05) saturate(1.15); animation:logoPulse 6s ease-in-out infinite}
 

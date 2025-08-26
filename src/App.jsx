@@ -2,6 +2,7 @@ import './App.css'
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import Navbar from "./components/navegar/Navbar.jsx";
+import {I18nProvider} from "./i18n.js";
 import {BrowserRouter,Route,Routes} from "react-router-dom";
 import Inicio from "./components/home/Home.jsx";
 import Info from "./components/info/Info.jsx";
@@ -11,7 +12,8 @@ import Footer from "./components/ui/Footer.jsx";
 function App() {
     return (
  <>
-     <BrowserRouter>
+    <BrowserRouter>
+    <I18nProvider>
 
          <Navbar/>
 
@@ -26,7 +28,8 @@ function App() {
                 <a className="contact-fab" href="mailto:jakecorrales24@gmail.com" title="Correo personal" aria-label="Correo personal">@</a>
                 <a className="contact-fab" href="mailto:jake.corrales@unadeca.net" title="Correo universitario" aria-label="Correo universitario">UNI</a>
             </div>
-     </BrowserRouter>
+    </I18nProvider>
+    </BrowserRouter>
  </>
 
     )
